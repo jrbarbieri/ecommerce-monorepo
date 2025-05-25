@@ -15,11 +15,13 @@ const typeDefs = gql`
     name: String!
     price: Float!
     stock: Int!
+    users: [User!]!
   }
 
   type Query {
     products: [Product!]!
-    user: User!
+    user(userId: ID!): User!
+    product(productId: ID!): Product!
     userProducts(userId: ID!): [Product!]!
   }
 
@@ -37,7 +39,12 @@ const resolvers = {
     user: async (_, { userId }) => {
       return await prisma.user.findUnique({
         where: { id: parseInt(userId) },
-        include: { products: true },
+      });
+    },
+    product: async (_, { productId }) => {
+      return await prisma.product.findUnique({
+        where: { id: parseInt(productId) },
+        include: { users: true },
       });
     },
     userProducts: async (_, { userId }) => {
