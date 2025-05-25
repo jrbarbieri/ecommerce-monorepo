@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^6.8.2",
+    "apollo-server": "^3.13.0",
+    "graphql": "^16.11.0",
+    "prisma": "^6.8.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

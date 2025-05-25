@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "web": "yarn workspace web build && start",
+    "api": "yarn workspace api start",
+    "dev": "concurrently \"yarn web\" \"yarn api\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
